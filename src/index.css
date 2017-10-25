@@ -1,0 +1,13 @@
+body {
+  background-color: #333333;
+  padding: 0 20%;
+}
+button {
+  width: 90%;
+}
+input {
+  width: 90%;
+}
+#root {
+  background-color: #45519f;
+}
