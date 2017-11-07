@@ -1,34 +1,42 @@
 import React from 'react';
 class TodoList extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      todos: [
-        {
-          name: 'todo 1',
-          completed: false
-        },
-        {
-          name: 'todo 2',
-          completed: false
-        },
-        {
-          name: 'todo 3',
-          completed: false
-        }
-      ]
-    };
+  renderActionsSection() {
+    if (this.state.isEditing) {
+      return (
+        <div>
+          <button>Save</button>
+          <button>Cancel</button>
+        </div>
+      );
+    }
+    {
+      return (
+        <div>
+          <button onClick={isEditClick.bind(this)}>Edit</button>
+          <button>Delete</button>
+        </div>
+      );
+    }
   }
+
   render() {
     return (
       <div>
         <ul>
-          {this.state.todos.map(function(x) {
-            return <li>x.name</li>;
+          {this.props.todos.map(function(todo, index) {
+            return (
+              <li key={index}>
+                {todo.name}
+                {/* {this.renderActionsSection()} */}
+              </li>
+            );
           })}
         </ul>
       </div>
     );
+  }
+  onEditClick() {
+    this.setState({ isEditing: true });
   }
 }
 export default TodoList;
